@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: $bodyBg;
+    color: $baseText;
+    font-family: 'Open Sans';
+}
+input {
+    border: none;
+    outline: none;    
+}
+.container {
+    background-color: $white;
+    width: 1200px;
+    margin: 0 auto;
+    height: 100vh;
+    box-shadow: $containerShadow;
+
+    display: flex;
+    flex-direction: column;
+
+}
+main {
+    flex-grow: 1;
+}
+.page {
+    padding: 0 30px;
+}
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+a {
+    text-decoration: none;
+}
+.mb-16 {
+    margin-bottom: 16px;
+}
+.flex-center {
+    justify-content: center;
+}
+.profile-page {
+    p {
+        font-size: 20px;
+    }
+    p span {
+        font-size: 16px;
+        margin-right: 20px;
+        font-weight: 500;
+    }
+}

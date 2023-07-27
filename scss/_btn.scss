@@ -1,0 +1,38 @@
+.btn-block {
+    display: flex;
+    margin-bottom: 16px;
+}
+.btn {
+    background-color: $white;
+    width: fit-content;
+    min-width: 120px;
+    font-size: 16px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.btn-link {
+    background-color: $white;
+    border: none;
+    color: blue;
+    cursor: pointer;
+    font-size: 17px;
+    text-decoration: underline;
+}
+.btn-green {
+    border: 1px solid green;
+    color: green;
+}
+.btn-green:hover {    
+    background-color: green;
+    color: $white;
+}
+
+.btn-blue {
+    border: 2px solid $baseBg;
+    color: lighten($baseText, 5);
+}
+.btn-blue:hover {    
+    background-color: $baseBg;
+    color: $white;
+}

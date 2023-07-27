@@ -1,0 +1,28 @@
+.pagination-block {
+    display: flex;
+    justify-content: center;
+}
+.pagination {
+    display: flex;
+    justify-content: center;  
+    gap: 7px;  
+}
+.pagination a {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    border: 1px solid $baseBg;
+    border-radius: 4px;
+    width: 30px;
+    height: 30px;
+    color: $baseText;
+    transition: 0.2s;
+    &.active {
+        background-color: $baseBg;
+        color: $white;       
+    }
+}
+.pagination a:hover {
+    background-color: $baseBg;
+    color: $white;
+}

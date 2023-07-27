@@ -1,0 +1,8 @@
+
+Основной видеоурок по MVC:
+    https://www.youtube.com/playlist?list=PLOpdT8GIZ4XU12DJ6RzN07CHIN0vDe2fl
+
+Работа с PDO:
+    https://www.youtube.com/watch?v=a9l3QPMqZ1Q
+
+    

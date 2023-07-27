@@ -1,0 +1,38 @@
+.notification {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f2a9828d;
+    border: 1px solid orange;
+    border-radius: 5px;
+    height: 42px;
+    margin-bottom: 16px;
+    padding: 16px;
+    color: rgb(115, 38, 7);
+    font-size: 20px;
+}
+.form-notification {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f2a9828d;
+    border: 1px solid orange;
+    color: rgb(115, 38, 7);
+    border-radius: 5px;
+    height: 36px;   
+    margin-bottom: 16px; 
+}
+
+.debug-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 50, 255, 0.115);
+    border: 1px solid rgba(0, 50, 255, 0.5);
+    border-radius: 5px;
+    height: 42px;
+    margin-bottom: 16px;
+    padding: 16px;
+    color: rgb(0, 50, 200);
+    font-size: 20px;    
+}

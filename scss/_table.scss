@@ -1,0 +1,115 @@
+.table {
+    width: 100%;
+    border: 1px solid $baseBg;
+    margin-bottom: 16px;
+}
+.table-header {
+    background-color: $baseBg;
+    color: $white;
+    .column a {
+        color: $white;
+    }
+    .column {
+        text-align: center;
+    }
+    .column:not(:last-child) {
+        border-right: 1px solid rgba($white, 0.4);    
+    }
+}
+
+.table-header .sort-link {
+    position: relative;
+    padding: 0 20px;
+    &::after {
+        content: '';
+        width: 11px;
+        height: 15px;
+        top: 6px;
+        right: 0;
+        position: absolute;
+        background-image: url('../images/sort.svg');
+        background-repeat: no-repeat;
+        background-size: 100%;    
+    }
+    &.is-sorted {
+        color: #0e0;
+        &.sort-asc::after {
+            background-image: url('../images/sort-asc.svg');        
+        }
+        &.sort-desc::after {
+            background-image: url('../images/sort-desc.svg');        
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.table-body {
+    .column:last-child a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+    }
+}
+.row {
+    display: flex;
+    border-bottom: 1px solid $lightgrey;
+}
+
+.column {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    &:not(:last-child) {
+        padding: 8px;
+        border-right: 1px solid rgba($baseBg, 0.4);
+    }
+    &:last-child a:hover {
+        background-color: $baseBg;
+        color: $white;
+    }
+    a {
+        color: $baseText;
+    }
+    .task-is-done {
+        color: green;
+        font-weight: 500;
+    }
+    &:last-child {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+.col-1 { flex: 0 0 20%; }
+.col-2 { flex: 0 0 15%; }
+.col-3 { flex: 0 0 50%; }
+.col-4 { flex: 0 0 10%; }
+.col-4-5 { flex: 0 0 15%; }
+.col-5 { flex: 0 0 05%; }
+
+
+
+.edit-icon {
+    background-image: url('../images/edit.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 40%;
+    &:hover {
+        background-image: url('../images/edit-white.svg');        
+    }
+}
