@@ -1,24 +1,24 @@
 @font-face {
   font-family: "Open Sans";
-  src: url("../fonts/Open_Sans/OpenSans-Bold.ttf") format("truetype");
+  src: url("../fonts/OpenSans-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: bold;
 }
 @font-face {
   font-family: "Open Sans";
-  src: url("../fonts/Open_Sans/OpenSans-SemiBold.ttf") format("truetype");
+  src: url("../fonts/OpenSans-SemiBold.ttf") format("truetype");
   font-weight: 600;
   font-style: bold;
 }
 @font-face {
   font-family: "Open Sans";
-  src: url("../fonts/Open_Sans/OpenSans-Medium.ttf") format("truetype");
+  src: url("../fonts/OpenSans-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: medium;
 }
 @font-face {
   font-family: "Open Sans";
-  src: url("../fonts/Open_Sans/OpenSans-Regular.ttf") format("truetype");
+  src: url("../fonts/OpenSans-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
@@ -41,7 +41,7 @@ input {
 
 .container {
   background-color: white;
-  width: 1200px;
+  width: 1400px;
   margin: 0 auto;
   height: 100vh;
   box-shadow: 0px 0px 20px 5px rgba(171, 171, 171, 0.1);
@@ -51,15 +51,12 @@ input {
 
 main {
   flex-grow: 1;
-}
-
-.page {
-  padding: 0 30px;
+  padding: 10px 30px 10px;
 }
 
 h1 {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 a {
@@ -70,17 +67,16 @@ a {
   margin-bottom: 16px;
 }
 
+.flex-start {
+  justify-content: flex-start;
+}
+
 .flex-center {
   justify-content: center;
 }
 
-.profile-page p {
-  font-size: 20px;
-}
-.profile-page p span {
-  font-size: 16px;
-  margin-right: 20px;
-  font-weight: 500;
+.flex-end {
+  justify-content: flex-end;
 }
 
 .top-panel {
@@ -90,7 +86,6 @@ a {
   align-items: center;
   height: 60px;
   padding: 0 30px;
-  margin-bottom: 20px;
 }
 .top-panel__logo a {
   font-size: 24px;
@@ -137,7 +132,7 @@ a {
   margin: 0 auto;
 }
 .form__input-group {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 .form input {
   height: 38px;
@@ -146,9 +141,6 @@ a {
 
 .auth-form {
   width: 550px;
-}
-.auth-form .form-btn-block {
-  justify-content: space-between;
 }
 
 .task-form {
@@ -217,11 +209,6 @@ a {
   height: 22px;
 }
 
-.form-btn-block {
-  display: flex;
-  align-items: center;
-}
-
 .table {
   width: 100%;
   border: 1px solid rgb(91, 129, 180);
@@ -231,6 +218,8 @@ a {
 .table-header {
   background-color: rgb(91, 129, 180);
   color: white;
+  font-weight: 500;
+  font-size: 15px;
 }
 .table-header .column a {
   color: white;
@@ -239,7 +228,7 @@ a {
   text-align: center;
 }
 .table-header .column:not(:last-child) {
-  border-right: 1px solid rgba(255, 255, 255, 0.4);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .table-header .sort-link {
@@ -277,7 +266,10 @@ a {
 
 .row {
   display: flex;
-  border-bottom: 1px solid lightgrey;
+  border-bottom: 1px solid #ededed;
+}
+.row:nth-child(even) {
+  background-color: #f7f7f7;
 }
 
 .column {
@@ -287,7 +279,7 @@ a {
 }
 .column:not(:last-child) {
   padding: 8px;
-  border-right: 1px solid rgba(91, 129, 180, 0.4);
+  border-right: 1px solid rgba(91, 129, 180, 0.1);
 }
 .column:last-child a:hover {
   background-color: rgb(91, 129, 180);
@@ -297,17 +289,24 @@ a {
   color: rgb(54, 74, 97);
 }
 .column .task-is-done {
-  color: green;
-  font-weight: 500;
+  color: rgb(0, 159, 0);
+  font-weight: 600;
 }
 .column:last-child {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-style: italic;
+}
+
+.col-0 {
+  flex: 0 0 100%;
+  text-align: center;
+  padding: 8px;
 }
 
 .col-1 {
-  flex: 0 0 20%;
+  flex: 0 0 15%;
 }
 
 .col-2 {
@@ -315,19 +314,19 @@ a {
 }
 
 .col-3 {
-  flex: 0 0 50%;
+  flex: 0 0 42%;
 }
 
 .col-4 {
-  flex: 0 0 10%;
+  flex: 0 0 24%;
 }
 
 .col-4-5 {
-  flex: 0 0 15%;
+  flex: 0 0 27%;
 }
 
 .col-5 {
-  flex: 0 0 5%;
+  flex: 0 0 4%;
 }
 
 .edit-icon {
@@ -340,9 +339,21 @@ a {
   background-image: url("../images/edit-white.svg");
 }
 
+.table-message {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+  font-style: italic;
+}
+
 .btn-block {
   display: flex;
   margin-bottom: 16px;
+}
+
+.form-btn-block {
+  display: flex;
+  align-items: center;
 }
 
 .btn {

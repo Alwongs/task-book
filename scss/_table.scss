@@ -6,6 +6,8 @@
 .table-header {
     background-color: $baseBg;
     color: $white;
+    font-weight: 500;
+    font-size: 15px;
     .column a {
         color: $white;
     }
@@ -13,7 +15,7 @@
         text-align: center;
     }
     .column:not(:last-child) {
-        border-right: 1px solid rgba($white, 0.4);    
+        border-right: 1px solid rgba($white, 0.1);    
     }
 }
 
@@ -42,20 +44,6 @@
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .table-body {
     .column:last-child a {
         display: flex;
@@ -67,7 +55,10 @@
 }
 .row {
     display: flex;
-    border-bottom: 1px solid $lightgrey;
+    border-bottom: 1px solid lighten($lightgrey, 10);
+    &:nth-child(even) {
+        background-color: $rowBg;
+    }
 }
 
 .column {
@@ -76,7 +67,7 @@
     text-overflow: ellipsis;
     &:not(:last-child) {
         padding: 8px;
-        border-right: 1px solid rgba($baseBg, 0.4);
+        border-right: 1px solid rgba($baseBg, 0.1);
     }
     &:last-child a:hover {
         background-color: $baseBg;
@@ -86,23 +77,27 @@
         color: $baseText;
     }
     .task-is-done {
-        color: green;
-        font-weight: 500;
+        color: rgb(0, 159, 0);
+        font-weight: 600;
     }
     &:last-child {
         display: flex;
         justify-content: center;
         align-items: center;
+        font-style: italic;
     }
 }
-.col-1 { flex: 0 0 20%; }
+.col-0 { 
+    flex: 0 0 100%; 
+    text-align: center;
+    padding: 8px;
+}
+.col-1 { flex: 0 0 15%; }
 .col-2 { flex: 0 0 15%; }
-.col-3 { flex: 0 0 50%; }
-.col-4 { flex: 0 0 10%; }
-.col-4-5 { flex: 0 0 15%; }
-.col-5 { flex: 0 0 05%; }
-
-
+.col-3 { flex: 0 0 42%; }
+.col-4 { flex: 0 0 24%; }
+.col-4-5 { flex: 0 0 27%; }
+.col-5 { flex: 0 0 04%; }
 
 .edit-icon {
     background-image: url('../images/edit.svg');
@@ -112,4 +107,9 @@
     &:hover {
         background-image: url('../images/edit-white.svg');        
     }
+}
+.table-message {
+    width: fit-content;
+    margin: 0 auto;
+    font-style: italic;
 }

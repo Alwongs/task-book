@@ -13,7 +13,7 @@
 
     <div class="column <?= isset($_SESSION['auth']) && $_SESSION['auth']['is_admin'] ? 'col-4' : 'col-4-5' ?>">
         <span class="<?= $task['status'] == 1 ? 'task-is-done' : '' ?>">
-            <?= $task['status'] == 1 ? 'выполнено' : 'ожидание' ?>
+            <?= $task['status'] == 1 ? 'отредактировано администратором' : 'ожидание' ?>
         </span>
     </div>
 

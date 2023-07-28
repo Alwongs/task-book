@@ -2,9 +2,9 @@
 
 class TaskController extends Controller 
 {
-    private $pageTpl = "/views/pages/main.tpl.php";
-    private $createTaskTpl = "/views/pages/create-task.tpl.php";
-    private $editTaskTpl = "/views/pages/edit-task.tpl.php";
+    private $mainTpl = "main";
+    private $createTpl = "create-task";
+    private $editTpl = "edit-task";
     private $tasksPerPage = 3;
 
     public function __construct() {
@@ -17,15 +17,20 @@ class TaskController extends Controller
     {
         $allTasks = $this->model->getCountTasks();
 
-        // pagination
-        $totalPages = ceil($allTasks / $this->tasksPerPage);
-        $this->makeTaskPager($allTasks, $totalPages);
-        $pagination = $this->utils->drawPager($allTasks, $this->tasksPerPage);
-    
-        // rendering
-        $this->pageData['pagination'] = $pagination;
-        $this->pageData['title'] = "Задачи";
-        $this->view->render($this->pageTpl, $this->pageData);
+        if ($allTasks > 0) {
+            // pagination
+            $totalPages = ceil($allTasks / $this->tasksPerPage);
+            $this->makeTaskPager($allTasks, $totalPages);
+            $pagination = $this->utils->drawPager($allTasks, $this->tasksPerPage);
+        
+            // rendering
+            $this->pageData['pagination'] = $pagination;
+            $this->pageData['title'] = "Задачи";
+        } else {
+            $this->pageData['message'] = "Список пуст. Добавьте первую задачу.";
+        }
+        
+        $this->view->render($this->mainTpl, $this->pageData);
     }
 
     public function makeTaskPager($allTasks, $totalPages)
@@ -68,7 +73,7 @@ class TaskController extends Controller
     public function create()
     {
         $this->pageData['title'] = "Новая задача";
-        $this->view->render($this->createTaskTpl, $this->pageData);        
+        $this->view->render($this->createTpl, $this->pageData);        
     }
 
     public function store() 
@@ -95,7 +100,7 @@ class TaskController extends Controller
         $task = $this->model->getOneTask($_GET['id']);
         $this->pageData['title'] = "Редактирование";
         $this->pageData['task'] = $task;
-        $this->view->render($this->editTaskTpl, $this->pageData);         
+        $this->view->render($this->editTpl, $this->pageData);         
     }
 
 
@@ -106,7 +111,7 @@ class TaskController extends Controller
         }        
         if (empty($_POST['task'])) {
             $this->pageData['error'] = "Не все поля заполнены!";  
-            $this->view->render($this->editTaskTpl, $this->pageData);         
+            $this->view->render($this->editTpl, $this->pageData);         
         } else {
             $task = strip_tags(trim($_POST['task']));
             $status = $_POST['status'] == 'on' ? 1 : 0;

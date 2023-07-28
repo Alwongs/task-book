@@ -1,5 +1,7 @@
-<main class="page">
+<main>
+
     <h1>Редактирование</h1>
+
     <form class="form task-form" action="/task/update?id=<?= $pageData['task']['id'] ?>" method="POST">
 
         <?php if(!empty($pageData['error'])) : ?>
@@ -27,10 +29,9 @@
             </div>
         </div>
 
-
         <div class="form-btn-block">
             <button type="submit" class="btn btn-green">Обновить</button>
         </div>
     </form>
-</main>
 
+</main>

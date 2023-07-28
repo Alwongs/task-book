@@ -2,6 +2,10 @@
     display: flex;
     margin-bottom: 16px;
 }
+.form-btn-block {
+    display: flex;
+    align-items: center;
+}
 .btn {
     background-color: $white;
     width: fit-content;

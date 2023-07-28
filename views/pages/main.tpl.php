@@ -8,7 +8,7 @@
     $orderByStatus = $orderBy == 'status' ? 'is-sorted': '';
 ?>
 
-<main class="page">
+<main>
 
     <h1>Задачи</h1>
 
@@ -16,52 +16,61 @@
         <a href="/task/create" class="btn btn-blue">Добавить задачу</a>
     </div>
 
-    <div class="table">
-        <div class="table-header row">
-            <div class="column col-1">
-                <a 
-                    class="sort-link <?= $sortDirect ?> <?= $orderByName ?>" 
-                    href="/task?orderby=full_name&page=<?= $page ?>"
-                >
-                    имя
-                </a>
+    <?php if(isset($pageData['tasksOnPage'])) : ?>
+        <div class="table">
+            <div class="table-header row">
+                <div class="column col-1">
+                    <a 
+                        class="sort-link <?= $sortDirect ?> <?= $orderByName ?>" 
+                        href="/task?orderby=full_name&page=<?= $page ?>"
+                    >
+                        имя
+                    </a>
+                </div>
+
+                <div class="column col-2">
+                    <a 
+                        class="sort-link <?= $sortDirect ?> <?= $orderByEmail ?>" 
+                        href="/task?orderby=email&page=<?= $page ?>"
+                    >
+                        email
+                    </a>
+                </div>
+
+                <div class="column col-3">
+                    задача
+                </div>
+
+                <div class="column <?= isset($_SESSION['auth']) && $_SESSION['auth']['is_admin'] ? 'col-4' : 'col-4-5' ?>">
+                    <a 
+                        class="sort-link <?= $sortDirect ?> <?= $orderByStatus ?>" 
+                        href="/task?orderby=status&page=<?= $page ?>"
+                    >
+                        статус
+                    </a>                   
+                </div>
+
+                <?php if(isset($_SESSION['auth'])) : ?>
+                    <div class="column col-5">Ред.</div>
+                <?php endif; ?>
             </div>
 
-            <div class="column col-2">
-                <a 
-                    class="sort-link <?= $sortDirect ?> <?= $orderByEmail ?>" 
-                    href="/task?orderby=email&page=<?= $page ?>"
-                >
-                    email
-                </a>
+            <div class="table-body">
+                <?php foreach($pageData['tasksOnPage'] as $task) : ?>
+                    <?php require "views/components/table-row.tpl.php"; ?>
+                <?php endforeach; ?>
             </div>
-
-            <div class="column col-3">
-                задача
-            </div>
-
-            <div class="column <?= isset($_SESSION['auth']) && $_SESSION['auth']['is_admin'] ? 'col-4' : 'col-4-5' ?>">
-                <a 
-                    class="sort-link <?= $sortDirect ?> <?= $orderByStatus ?>" 
-                    href="/task?orderby=status&page=<?= $page ?>"
-                >
-                    статус
-                </a>                   
-            </div>
-
-            <?php if(isset($_SESSION['auth'])) : ?>
-                <div class="column col-5">Ред.</div>
-            <?php endif; ?>
         </div>
+    <?php else : ?>
+        <p class="table-message">
+            <?= $pageData['message'] ?>
+        </p>
+    <?php endif; ?>        
 
-        <div class="table-body">
-            <?php foreach($pageData['tasksOnPage'] as $task) : ?>
-                <?php require "views/components/table-row.tpl.php"; ?>
-            <?php endforeach; ?>
+    <?php if(isset($pageData['pagination'])) : ?>
+        <div class="pagination-block">
+            <?= $pageData['pagination'] ?>
         </div>
-    </div>
+    <?php endif; ?>
 
-    <div class="pagination-block">
-        <?php echo $pageData['pagination']; ?>
-    </div>
 </main>

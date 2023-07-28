@@ -6,7 +6,7 @@ class View {
 
         require_once "components/header.tpl.php";
 
-        include ROOT. $tpl;
+        include ROOT . "/views/pages/" . $tpl . ".tpl.php";
         
         require_once "components/footer.tpl.php";
     }

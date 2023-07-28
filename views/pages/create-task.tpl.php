@@ -1,4 +1,4 @@
-<main class="page">
+<main>
     <h1>Новая задача</h1>
     <form class="form task-form" action="/task/store" method="POST">
 
@@ -7,8 +7,6 @@
                 <?= $pageData['error'] ?> 
             </p>
         <?php endif; ?>
-
-
 
         <div class="form__input-group">
             <div class="input-block">
@@ -27,14 +25,8 @@
             </div>
         </div>
 
-
-
-
-
-
         <div class="form-btn-block">
             <button type="submit" class="btn btn-green">Сохранить</button>
         </div>
     </form>
 </main>
-

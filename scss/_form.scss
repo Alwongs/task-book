@@ -1,7 +1,7 @@
 .form {
     margin: 0 auto;
     &__input-group {
-        margin-bottom: 20px;
+        margin-bottom: 30px;
     }
     input {
         height: 38px;
@@ -10,9 +10,6 @@
 }
 .auth-form {
     width: 550px;   
-    .form-btn-block {
-        justify-content: space-between;
-    }
 }
 .task-form {
     width: 800px;
@@ -81,7 +78,3 @@
 }
 
 
-.form-btn-block {
-    display: flex;
-    align-items: center;
-}

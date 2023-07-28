@@ -1,4 +1,4 @@
-<main class="page">
+<main>
 
     <h1>Вход</h1>
     <form class="form auth-form" method="POST">
@@ -19,12 +19,9 @@
             </div>
         </div>
 
-
-        <div class="form-btn-block">
-            <a href="/user/register">Регистрация</a>
+        <div class="form-btn-block flex-center">
             <button type="submit" class="btn btn-green">Войти</button>
         </div>
-
     </form>
     
 </main>

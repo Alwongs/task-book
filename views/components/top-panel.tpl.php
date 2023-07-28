@@ -1,4 +1,5 @@
 <header class="top-panel">
+
     <div class="top-panel__logo">
         <a href="/">Задачник</a>
     </div>
@@ -11,4 +12,5 @@
             <a href="/user/login">Войти</a>
         <?php endif; ?>  
     </nav>
+    
 </header>
