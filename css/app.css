@@ -1,11 +1,5 @@
 @font-face {
   font-family: "Open Sans";
-  src: url("../fonts/Open_Sans/OpenSans-ExtraBold.ttf") format("truetype");
-  font-weight: 800;
-  font-style: bold;
-}
-@font-face {
-  font-family: "Open Sans";
   src: url("../fonts/Open_Sans/OpenSans-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: bold;
@@ -27,12 +21,6 @@
   src: url("../fonts/Open_Sans/OpenSans-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
-}
-@font-face {
-  font-family: "Open Sans";
-  src: url("../fonts/Open_Sans/OpenSans-Light.ttf") format("truetype");
-  font-weight: 300;
-  font-style: light;
 }
 * {
   margin: 0;
@@ -123,8 +111,26 @@ a {
 .top-panel__nav a {
   color: white;
 }
+.top-panel__nav a:not(:last-child) {
+  margin-right: 30px;
+}
 .top-panel__nav a:hover {
   color: rgb(255, 217, 0);
+}
+
+.icon-logout {
+  display: block;
+  position: relative;
+}
+.icon-logout::after {
+  position: absolute;
+  left: -30px;
+  content: "";
+  width: 30px;
+  height: 30px;
+  background-image: url("../images/logout.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 
 .form {

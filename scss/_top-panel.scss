@@ -25,7 +25,25 @@
     &__nav a {
         color: $white; 
     }
+    &__nav a:not(:last-child) {
+        margin-right: 30px; 
+    }
+
     &__nav a:hover {
         color: $yellow;
+    }
+}
+.icon-logout {
+    display: block;
+    position: relative;
+    &::after {
+        position: absolute;
+        left: -30px;
+        content: '';
+        width: 30px;
+        height: 30px;
+        background-image: url('../images/logout.svg');
+        background-repeat: no-repeat;
+        background-size: 100%;
     }
 }
