@@ -23,12 +23,6 @@ class Routing {
             }
             $i--;
         }
-        // if (method_exists ( CONTROLLER_PATH . $controllerName . ".php" , $action )) {
-        //     echo 'exist';
-        // } else {
-        //     echo 'no exist';
-        // }
-
 
         require_once CONTROLLER_PATH . $controllerName . ".php";
         require_once MODEL_PATH . $modelName . ".php";
@@ -38,12 +32,6 @@ class Routing {
         if (!method_exists( $controller , $action )) {
             header("Location: /");
         }
-
         $controller->$action();
     }
-
-    public function errorPage() {
-        
-    }
-
 }
