@@ -9,10 +9,13 @@
     }
 }
 .auth-form {
-    width: 550px;   
+    width: 400px;   
+    .input-block label {
+        flex: 0 0 80px;
+    }    
 }
 .task-form {
-    width: 800px;
+    width: 600px;
     &__personal-info {
         margin-bottom: 30px;
     }
@@ -24,6 +27,9 @@
         font-weight: 700;
         margin-right: 20px;
     }
+    .input-block label {
+        flex: 0 0 120px;
+    }       
     .form-btn-block {
         justify-content: center;
     }    
@@ -38,7 +44,6 @@
         margin-bottom: 22px;
     }
     label {
-        flex: 0 0 140px;
         font-weight: 600;
         text-align: end;
         white-space: nowrap;
@@ -60,7 +65,7 @@
     display: flex;
     gap: 15px;
     label {
-        flex: 0 0 140px;
+        flex: 0 0 120px;
         font-weight: 600;
         text-align: end;
         white-space: nowrap;
@@ -68,6 +73,7 @@
     input[type="checkbox"] {
         width: 100%;
         height: 100%;
+        cursor: pointer;
     } 
     .fake-checkbox {
         outline: 2px solid darken($baseBg, 10);

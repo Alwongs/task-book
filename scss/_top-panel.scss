@@ -7,21 +7,23 @@
     padding: 0 30px;
     &__logo a {
         font-size: 24px;
-        padding: 0 10px;
+        padding: 0 10px 2px;
         display: block;
-        border: 1px solid $white;
-        border-radius: 3px;
-        color: $white;    
+        border: 2px solid rgba($white, 0.7);
+        border-radius: 5px;
+        color: rgba($white, 0.9);  
+        transition: .2s;  
     }
     &__logo a:hover {
         color: $yellow;
-        border: 1px solid $yellow;
+        border: 2px solid $yellow;
     }     
     &__nav {
         display: flex;
         gap: 20px;
     }
     &__nav a {
+        transition: .2s; 
         color: $white; 
     }
     &__nav a:not(:last-child) {
@@ -44,5 +46,10 @@
         background-image: url('../images/logout.svg');
         background-repeat: no-repeat;
         background-size: 100%;
+    }
+}
+.icon-logout:hover {
+    &::after {
+        background-image: url('../images/logout-hover.svg'); 
     }
 }

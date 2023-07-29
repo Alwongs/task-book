@@ -29,12 +29,20 @@ main {
 h1 {
     text-align: center;
     margin-bottom: 10px;
+    color: lighten($baseText, 10);
+    span {
+        font-weight: normal;
+        font-size: 20px;
+    }
 }
 a {
     text-decoration: none;
 }
 .mb-16 {
     margin-bottom: 16px;
+}
+.mb-30 {
+    margin-bottom: 30px;
 }
 .flex-start {
     justify-content: flex-start;
@@ -44,4 +52,7 @@ a {
 }
 .flex-end {
     justify-content: flex-end;
+}
+.flex-between{
+    justify-content: space-between;
 }

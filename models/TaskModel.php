@@ -10,9 +10,9 @@ class TaskModel extends Model
         return $stmt->fetchColumn(); 
     }
 
-    public function getLimitTasks($leftLimit, $rightLimit, $orderBy, $sortDirect) 
+    public function getLimitTasks($leftLimit, $rightLimit, $sortBy, $sortDirect) 
     {
-        $sql = "SELECT * FROM tasks ORDER BY " .$orderBy. " " .$sortDirect. " LIMIT :leftLimit, :rightLimit";
+        $sql = "SELECT * FROM tasks ORDER BY " .$sortBy. " " .$sortDirect. " LIMIT :leftLimit, :rightLimit";
         $stmt = $this->db->prepare($sql);
         $stmt->bindValue(":leftLimit", $leftLimit, PDO::PARAM_INT);
         $stmt->bindValue(":rightLimit", $rightLimit, PDO::PARAM_INT);

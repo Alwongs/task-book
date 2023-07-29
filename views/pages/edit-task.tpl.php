@@ -1,6 +1,9 @@
 <main>
 
-    <h1>Редактирование</h1>
+    <h1 class="mb-30">
+        <?= $pageData['task']['full_name'] ?><br>
+        <span>( <?= $pageData['task']['email'] ?> )</span>
+    </h1>
 
     <form class="form task-form" action="/task/update?id=<?= $pageData['task']['id'] ?>" method="POST">
 
@@ -9,11 +12,6 @@
                 <?= $pageData['error'] ?> 
             </p>
         <?php endif; ?>
-
-        <div class="task-form__personal-info">
-            <p><span>Имя:</span><?= $pageData['task']['full_name'] ?></p>
-            <p><span>Email:</span><?= $pageData['task']['email'] ?></p>
-        </div>
 
         <div class="form__input-group">
             <div class="input-block">

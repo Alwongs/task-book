@@ -1,7 +1,7 @@
 <?php 
     $page = isset($_GET['page']) ? $_GET['page'] : 1; 
-    $sortDirect = isset($_SESSION['boolean']) ? $_SESSION['boolean'] : true; 
-    $sortDirect = !$sortDirect ? 'sort-asc' : 'sort-desc';
+    $sortDirect = isset($_GET['sortDirect']) ? $_GET['sortDirect'] : 'DESC'; 
+
     $orderBy = isset($_GET['orderby']) ? $_GET['orderby'] : 'created_at';
     $orderByName = $orderBy == 'full_name' ? 'is-sorted': '';
     $orderByEmail = $orderBy == 'email' ? 'is-sorted': '';
@@ -12,29 +12,75 @@
 
     <h1>Задачи</h1>
 
-    <div class="btn-block mb-16 flex-end">
-        <a href="/task/create" class="btn btn-blue">Добавить задачу</a>
+    <div class="btn-block mb-16 flex-between">
+
+        <?php if(isset($pageData['tasksOnPage'])) : ?>        
+            <div class="sort-block">
+                <label for="sort-by-select">Сортировать по: </label>
+                <select id="sort-by-select"  class="select-sort-by">
+                    <option
+                        onclick="location.href = '/task?orderby=created_at&sortDirect=DESC&page=<?= $page ?>'" 
+                        <?= $orderBy == 'created_At' ? 'selected': ''; ?>                    
+                    > ---- </option>
+
+                    <option 
+                        onclick="location.href = '/task?orderby=full_name&sortDirect=<?= $sortDirect ?>&page=<?= $page ?>'" 
+                        <?= $orderBy == 'full_name' ? 'selected': ''; ?>
+                    > имени </option>
+
+                    <option 
+                        onclick="location.href = '/task?orderby=email&sortDirect=<?= $sortDirect ?>&page=<?= $page ?>'" 
+                        <?= $orderBy == 'email' ? 'selected': ''; ?>
+                    > email </option>
+
+                    <option 
+                        onclick="location.href = '/task?orderby=status&sortDirect=<?= $sortDirect ?>&page=<?= $page ?>'"
+                        <?= $orderBy == 'status' ? 'selected': ''; ?>
+                    > cтатусу </option>
+                </select>
+
+                <!-- <label for="sort-direct">по: </label> -->
+                <select id="sort-direct" class="select-direct-sort">
+                    <!-- <option> ---- </option> -->
+
+                    <option 
+                        onclick="location.href = '/task?orderby=<?= $orderBy ? $orderBy : 'created_at' ?>&sortDirect=ASC&page=<?= $page ?>'"
+                        <?= $sortDirect == 'ASC' ? 'selected': ''; ?>
+                    > по возрастанию </option>
+
+                    <option 
+                        onclick="location.href = '/task?orderby=<?= $orderBy ? $orderBy : 'created_at' ?>&sortDirect=DESC&page=<?= $page ?>'"
+                        <?= $sortDirect == 'DESC' ? 'selected': ''; ?>
+                    > по убыванию </option>
+
+                </select>
+            </div>
+        <?php endif; ?>
+
+        <a href="/task/create" class="btn btn-blue">
+            Добавить задачу
+        </a>
     </div>
+
+
+
+
+
+
+
+
+
 
     <?php if(isset($pageData['tasksOnPage'])) : ?>
         <div class="table">
             <div class="table-header row">
+
                 <div class="column col-1">
-                    <a 
-                        class="sort-link <?= $sortDirect ?> <?= $orderByName ?>" 
-                        href="/task?orderby=full_name&page=<?= $page ?>"
-                    >
-                        имя
-                    </a>
+                    <span class="sort-link <?= $orderByName ?>"> имя </span>
                 </div>
 
                 <div class="column col-2">
-                    <a 
-                        class="sort-link <?= $sortDirect ?> <?= $orderByEmail ?>" 
-                        href="/task?orderby=email&page=<?= $page ?>"
-                    >
-                        email
-                    </a>
+                    <span class="sort-link <?= $orderByEmail ?>"> email </span>
                 </div>
 
                 <div class="column col-3">
@@ -42,12 +88,7 @@
                 </div>
 
                 <div class="column <?= isset($_SESSION['auth']) && $_SESSION['auth']['is_admin'] ? 'col-4' : 'col-4-5' ?>">
-                    <a 
-                        class="sort-link <?= $sortDirect ?> <?= $orderByStatus ?>" 
-                        href="/task?orderby=status&page=<?= $page ?>"
-                    >
-                        статус
-                    </a>                   
+                    <span class="sort-link <?= $orderByStatus ?>"> статус </span>                   
                 </div>
 
                 <?php if(isset($_SESSION['auth'])) : ?>

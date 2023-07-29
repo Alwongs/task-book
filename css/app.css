@@ -57,6 +57,11 @@ main {
 h1 {
   text-align: center;
   margin-bottom: 10px;
+  color: #486382;
+}
+h1 span {
+  font-weight: normal;
+  font-size: 20px;
 }
 
 a {
@@ -65,6 +70,10 @@ a {
 
 .mb-16 {
   margin-bottom: 16px;
+}
+
+.mb-30 {
+  margin-bottom: 30px;
 }
 
 .flex-start {
@@ -79,6 +88,10 @@ a {
   justify-content: flex-end;
 }
 
+.flex-between {
+  justify-content: space-between;
+}
+
 .top-panel {
   background-color: rgb(91, 129, 180);
   display: flex;
@@ -89,28 +102,30 @@ a {
 }
 .top-panel__logo a {
   font-size: 24px;
-  padding: 0 10px;
+  padding: 0 10px 2px;
   display: block;
-  border: 1px solid white;
-  border-radius: 3px;
-  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
+  color: rgba(255, 255, 255, 0.9);
+  transition: 0.2s;
 }
 .top-panel__logo a:hover {
-  color: rgb(255, 217, 0);
-  border: 1px solid rgb(255, 217, 0);
+  color: #fe0;
+  border: 2px solid #fe0;
 }
 .top-panel__nav {
   display: flex;
   gap: 20px;
 }
 .top-panel__nav a {
+  transition: 0.2s;
   color: white;
 }
 .top-panel__nav a:not(:last-child) {
   margin-right: 30px;
 }
 .top-panel__nav a:hover {
-  color: rgb(255, 217, 0);
+  color: #fe0;
 }
 
 .icon-logout {
@@ -128,6 +143,10 @@ a {
   background-size: 100%;
 }
 
+.icon-logout:hover::after {
+  background-image: url("../images/logout-hover.svg");
+}
+
 .form {
   margin: 0 auto;
 }
@@ -140,11 +159,14 @@ a {
 }
 
 .auth-form {
-  width: 550px;
+  width: 400px;
+}
+.auth-form .input-block label {
+  flex: 0 0 80px;
 }
 
 .task-form {
-  width: 800px;
+  width: 600px;
 }
 .task-form__personal-info {
   margin-bottom: 30px;
@@ -156,6 +178,9 @@ a {
   font-size: 16px;
   font-weight: 700;
   margin-right: 20px;
+}
+.task-form .input-block label {
+  flex: 0 0 120px;
 }
 .task-form .form-btn-block {
   justify-content: center;
@@ -171,7 +196,6 @@ a {
   margin-bottom: 22px;
 }
 .input-block label {
-  flex: 0 0 140px;
   font-weight: 600;
   text-align: end;
   white-space: nowrap;
@@ -193,7 +217,7 @@ a {
   gap: 15px;
 }
 .input-checkbox-block label {
-  flex: 0 0 140px;
+  flex: 0 0 120px;
   font-weight: 600;
   text-align: end;
   white-space: nowrap;
@@ -201,6 +225,7 @@ a {
 .input-checkbox-block input[type=checkbox] {
   width: 100%;
   height: 100%;
+  cursor: pointer;
 }
 .input-checkbox-block .fake-checkbox {
   outline: 2px solid #456897;
@@ -230,30 +255,8 @@ a {
 .table-header .column:not(:last-child) {
   border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
-
-.table-header .sort-link {
-  position: relative;
-  padding: 0 20px;
-}
-.table-header .sort-link::after {
-  content: "";
-  width: 11px;
-  height: 15px;
-  top: 6px;
-  right: 0;
-  position: absolute;
-  background-image: url("../images/sort.svg");
-  background-repeat: no-repeat;
-  background-size: 100%;
-}
 .table-header .sort-link.is-sorted {
   color: #0e0;
-}
-.table-header .sort-link.is-sorted.sort-asc::after {
-  background-image: url("../images/sort-asc.svg");
-}
-.table-header .sort-link.is-sorted.sort-desc::after {
-  background-image: url("../images/sort-desc.svg");
 }
 
 .table-body .column:last-child a {
@@ -346,9 +349,35 @@ a {
   font-style: italic;
 }
 
+.sort-block label {
+  margin-right: 10px;
+}
+.sort-block select {
+  font: inherit;
+  letter-spacing: inherit;
+  word-spacing: inherit;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  border: 1px solid rgba(91, 129, 180, 0.8);
+  border-radius: 4px;
+  margin-right: 10px;
+  padding: 2px 6px;
+  background-color: #fff;
+  color: rgb(54, 74, 97);
+  font-weight: 500;
+}
+.sort-block .select-sort-by {
+  width: 80px;
+}
+.sort-block .select-direct-sort {
+  width: 150px;
+}
+
 .btn-block {
   display: flex;
   margin-bottom: 16px;
+  align-items: center;
 }
 
 .form-btn-block {
@@ -379,6 +408,7 @@ a {
 .btn-green {
   border: 1px solid green;
   color: green;
+  transition: 0.2s;
 }
 
 .btn-green:hover {
@@ -389,6 +419,7 @@ a {
 .btn-blue {
   border: 2px solid rgb(91, 129, 180);
   color: #3f5671;
+  transition: 0.2s;
 }
 
 .btn-blue:hover {
@@ -481,6 +512,7 @@ a {
 }
 .footer a {
   color: white;
+  transition: 0.9s;
 }
 .footer a:hover {
   color: #0e0;

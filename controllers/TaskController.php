@@ -18,56 +18,17 @@ class TaskController extends Controller
         $allTasks = $this->model->getCountTasks();
 
         if ($allTasks > 0) {
-            // pagination
             $totalPages = ceil($allTasks / $this->tasksPerPage);
-            $this->makeTaskPager($allTasks, $totalPages);
-            $pagination = $this->utils->drawPager($allTasks, $this->tasksPerPage);
-        
-            // rendering
-            $this->pageData['pagination'] = $pagination;
+            [ $leftLimit, $rightLimit ] = $this->utils->getLimits($allTasks, $totalPages, $this->tasksPerPage);
+            [ $sortBy, $sortDirect ] = $this->utils->getSortParams();
+
             $this->pageData['title'] = "Задачи";
+            $this->pageData['tasksOnPage'] = $this->model->getLimitTasks($leftLimit, $rightLimit, $sortBy, $sortDirect);
+            $this->pageData['pagination'] = $this->utils->drawPagerButtons($allTasks, $this->tasksPerPage);
         } else {
             $this->pageData['message'] = "Список пуст. Добавьте первую задачу.";
         }
-        
         $this->view->render($this->mainTpl, $this->pageData);
-    }
-
-    public function makeTaskPager($allTasks, $totalPages)
-    {
-        if (!isset($_GET['page']) || intval($_GET['page']) == 0 || intval($_GET['page']) == 1 || intval($_GET['page']) < 0) {
-            $pageNumber = 1;
-            $leftLimit = 0;
-            $rightLimit = $this->tasksPerPage;
-        } elseif (intval($_GET['page']) > $totalPages || intval($_GET['page']) == $totalPages) {
-            $pageNumber = $totalPages;
-            $leftLimit = $this->tasksPerPage * ($pageNumber - 1);
-            $rightLimit = $allTasks;
-        } else {
-            $pageNumber = intval($_GET['page']);
-            $leftLimit = $this->tasksPerPage * ($pageNumber - 1);   
-            $rightLimit = $this->tasksPerPage;      
-        }
-
-        if (isset($_GET['orderby']) && $this->checkGetParamToSort($_GET['orderby'])) {
-            $orderBy = $_GET['orderby'];            
-        } else {
-            $orderBy = 'created_at';             
-        }
-
-        $_SESSION['boolean'] = !isset($_SESSION['boolean']) ? true : !$_SESSION['boolean'] ;
-        $sortDirect = $_SESSION['boolean'] ? 'DESC' : 'ASC';        
-        $this->pageData['tasksOnPage'] = $this->model->getLimitTasks($leftLimit, $rightLimit, $orderBy, $sortDirect);
-    }
-
-    private function checkGetParamToSort($param) 
-    {
-        $sortGetParams = [
-            'full_name' => 1,
-            'email' => 1,
-            'status' => 1
-        ];
-        return isset($sortGetParams[$param]);
     }
 
     public function create()
@@ -85,9 +46,8 @@ class TaskController extends Controller
             $task = strip_tags(trim($_POST['task']));
             $createdAt = time();
 
-            unset($_SESSION['boolean']);
             if($this->model->saveTask($fullName, $email, $task, $createdAt)) {
-                header("Location: /");
+                header("Location: /task?orderby=created_at&sortDirect=DESC");
             }
         }        
     }
@@ -103,7 +63,6 @@ class TaskController extends Controller
         $this->view->render($this->editTpl, $this->pageData);         
     }
 
-
     public function update() 
     {
         if(!isset($_SESSION['auth']) || !$_SESSION['auth']['is_admin']) {
@@ -117,9 +76,8 @@ class TaskController extends Controller
             $status = $_POST['status'] == 'on' ? 1 : 0;
             $id = strip_tags(trim($_GET['id']));
 
-            unset($_SESSION['boolean']);
             $this->model->updateTask($task, $status, $id);
-            header("Location: /");            
+            header("Location: /task?orderby=created_at&sortDirect=DESC");           
         }   
     }
 }

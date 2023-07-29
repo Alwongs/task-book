@@ -17,30 +17,8 @@
     .column:not(:last-child) {
         border-right: 1px solid rgba($white, 0.1);    
     }
-}
-
-.table-header .sort-link {
-    position: relative;
-    padding: 0 20px;
-    &::after {
-        content: '';
-        width: 11px;
-        height: 15px;
-        top: 6px;
-        right: 0;
-        position: absolute;
-        background-image: url('../images/sort.svg');
-        background-repeat: no-repeat;
-        background-size: 100%;    
-    }
-    &.is-sorted {
+    .sort-link.is-sorted {
         color: #0e0;
-        &.sort-asc::after {
-            background-image: url('../images/sort-asc.svg');        
-        }
-        &.sort-desc::after {
-            background-image: url('../images/sort-desc.svg');        
-        }
     }
 }
 
@@ -112,4 +90,37 @@
     width: fit-content;
     margin: 0 auto;
     font-style: italic;
+}
+
+
+.sort-block {
+    label {
+        margin-right: 10px;
+    }
+    select {
+        font: inherit;
+        letter-spacing: inherit;
+        word-spacing: inherit;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+        border: 1px solid rgba($baseBg, .8);
+        border-radius: 4px;
+        margin-right: 10px;
+        padding: 2px 6px;
+        background-color: #fff;
+        color: $baseText;
+        font-weight: 500;
+    }
+    // option {
+    //     font-family: 'Open Sans';
+    // }
+
+    .select-sort-by {
+        width: 80px;
+    }
+    
+    .select-direct-sort {
+        width: 150px;
+    }    
 }

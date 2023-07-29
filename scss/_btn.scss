@@ -1,6 +1,7 @@
 .btn-block {
     display: flex;
     margin-bottom: 16px;
+    align-items: center;
 }
 .form-btn-block {
     display: flex;
@@ -26,6 +27,7 @@
 .btn-green {
     border: 1px solid green;
     color: green;
+    transition: .2s; 
 }
 .btn-green:hover {    
     background-color: green;
@@ -35,6 +37,7 @@
 .btn-blue {
     border: 2px solid $baseBg;
     color: lighten($baseText, 5);
+    transition: .2s; 
 }
 .btn-blue:hover {    
     background-color: $baseBg;
