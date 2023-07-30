@@ -6,7 +6,7 @@
 
     <nav class="top-panel__nav">
         <?php if(isset($_SESSION['auth'])) : ?>
-            <a href="/user/profile"><?= $_SESSION['auth']['full_name'] ?></a>            
+            <span><?= $_SESSION['auth']['full_name'] ?></span>            
             <a href="/user/logout" class="icon-logout"></a>
         <?php else: ?>
             <a href="/user/login">Войти</a>

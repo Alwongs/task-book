@@ -1,5 +1,5 @@
         <footer class="footer">
-            <span>Разработал:</span><a href="https://t.me/Alwongs">Мартынов А.В.</a>
+            <span>Разработал:</span><a href="https://t.me/Alwongs">Мартынов Александр</a>
         </footer>
     
     </div>

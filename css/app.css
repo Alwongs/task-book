@@ -129,8 +129,9 @@ a {
   transition: 0.2s;
   color: white;
 }
-.top-panel__nav a:not(:last-child) {
+.top-panel__nav span {
   margin-right: 30px;
+  color: #0e0;
 }
 .top-panel__nav a:hover {
   color: #fe0;
@@ -541,14 +542,14 @@ a {
   height: 35px;
   line-height: 35px;
   padding-left: 30px;
-  color: white;
+  color: rgba(255, 255, 255, 0.5);
   font-size: 14px;
 }
 .footer span {
   margin-right: 20px;
 }
 .footer a {
-  color: white;
+  color: rgba(255, 255, 255, 0.5);
   transition: 0.9s;
 }
 .footer a:hover {

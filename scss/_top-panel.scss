@@ -30,8 +30,9 @@
         transition: .2s; 
         color: $white; 
     }
-    &__nav a:not(:last-child) {
+    &__nav span {
         margin-right: 30px; 
+        color: $green;
     }
 
     &__nav a:hover {
