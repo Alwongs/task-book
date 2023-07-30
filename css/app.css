@@ -92,6 +92,10 @@ a {
   justify-content: space-between;
 }
 
+.flex-bottom {
+  align-items: flex-end;
+}
+
 .top-panel {
   background-color: rgb(91, 129, 180);
   display: flex;
@@ -99,6 +103,10 @@ a {
   align-items: center;
   height: 60px;
   padding: 0 30px;
+}
+.top-panel p {
+  color: rgb(255, 222, 91);
+  font-size: 22px;
 }
 .top-panel__logo a {
   font-size: 24px;
@@ -349,35 +357,71 @@ a {
   font-style: italic;
 }
 
-.sort-block label {
-  margin-right: 10px;
-}
-.sort-block select {
-  font: inherit;
-  letter-spacing: inherit;
-  word-spacing: inherit;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
+.sort-block {
+  display: flex;
+  gap: 20px;
   border: 1px solid rgba(91, 129, 180, 0.8);
-  border-radius: 4px;
-  margin-right: 10px;
-  padding: 2px 6px;
-  background-color: #fff;
-  color: rgb(54, 74, 97);
-  font-weight: 500;
+  border-radius: 3px;
+  padding: 2px 10px;
 }
-.sort-block .select-sort-by {
-  width: 80px;
+.sort-block .sort-by-block {
+  display: flex;
+  align-items: center;
+  gap: 1px;
 }
-.sort-block .select-direct-sort {
-  width: 150px;
+.sort-block .sort-by-block span {
+  margin-right: 6px;
+  font-style: italic;
+}
+.sort-block .sort-by-block a {
+  display: block;
+  border-radius: 3px;
+  padding: 0 4px;
+  color: rgb(91, 129, 180);
+  font-weight: 600;
+}
+.sort-block .sort-by-block a:hover {
+  color: #00bb00;
+}
+.sort-block .sort-by-block .sort-link.is-sorted {
+  color: #00a200;
+}
+.sort-block .sort-direct-btn-block {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.sort-block .sort-direct-btn-block .sort-link {
+  display: inline-block;
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 16px;
+  transition: 0.2s;
+}
+.sort-block .sort-direct-btn-block .sort-link:first-child {
+  background-image: url(../images/sort-up.svg);
+}
+.sort-block .sort-direct-btn-block .sort-link:first-child:hover {
+  background-size: 90%;
+  background-position: center;
+}
+.sort-block .sort-direct-btn-block .sort-link:first-child.is-sorted {
+  background-image: url(../images/sort-up-selected.svg);
+}
+.sort-block .sort-direct-btn-block .sort-link:last-child {
+  background-image: url(../images/sort-down.svg);
+}
+.sort-block .sort-direct-btn-block .sort-link:last-child:hover {
+  background-size: 90%;
+  background-position: center;
+}
+.sort-block .sort-direct-btn-block .sort-link:last-child.is-sorted {
+  background-image: url(../images/sort-down-selected.svg);
 }
 
 .btn-block {
   display: flex;
   margin-bottom: 16px;
-  align-items: center;
 }
 
 .form-btn-block {

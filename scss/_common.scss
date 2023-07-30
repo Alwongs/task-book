@@ -53,6 +53,9 @@ a {
 .flex-end {
     justify-content: flex-end;
 }
-.flex-between{
+.flex-between {
     justify-content: space-between;
+}
+.flex-bottom {
+    align-items: flex-end;
 }

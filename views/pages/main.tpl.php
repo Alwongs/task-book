@@ -1,6 +1,9 @@
 <?php 
     $page = isset($_GET['page']) ? $_GET['page'] : 1; 
+
     $sortDirect = isset($_GET['sortDirect']) ? $_GET['sortDirect'] : 'DESC'; 
+    $sortDirectAsc = $sortDirect == 'ASC' ? 'is-sorted' : ''; 
+    $sortDirectDesc = $sortDirect == 'DESC' ? 'is-sorted' : ''; 
 
     $orderBy = isset($_GET['orderby']) ? $_GET['orderby'] : 'created_at';
     $orderByName = $orderBy == 'full_name' ? 'is-sorted': '';
@@ -12,48 +15,38 @@
 
     <h1>Задачи</h1>
 
-    <div class="btn-block mb-16 flex-between">
+    <div class="btn-block mb-16 flex-between flex-bottom">
 
         <?php if(isset($pageData['tasksOnPage'])) : ?>        
             <div class="sort-block">
-                <label for="sort-by-select">Сортировать по: </label>
-                <select id="sort-by-select"  class="select-sort-by">
-                    <option
-                        onclick="location.href = '/task?orderby=created_at&sortDirect=DESC&page=<?= $page ?>'" 
-                        <?= $orderBy == 'created_At' ? 'selected': ''; ?>                    
-                    > ---- </option>
+                <div class="sort-by-block">
+                    <span>Сортировать по:</span>
+                    <a 
+                        href="/task?orderby=full_name&sortDirect=<?= $sortDirect ?>&page=<?= $page ?>"
+                        class="sort-link <?= $orderByName ?>"
+                    >имени,</a>
 
-                    <option 
-                        onclick="location.href = '/task?orderby=full_name&sortDirect=<?= $sortDirect ?>&page=<?= $page ?>'" 
-                        <?= $orderBy == 'full_name' ? 'selected': ''; ?>
-                    > имени </option>
+                    <a 
+                        href="/task?orderby=email&sortDirect=<?= $sortDirect ?>&page=<?= $page ?>"
+                        class="sort-link <?= $orderByEmail ?>"
+                    >email,</a>
 
-                    <option 
-                        onclick="location.href = '/task?orderby=email&sortDirect=<?= $sortDirect ?>&page=<?= $page ?>'" 
-                        <?= $orderBy == 'email' ? 'selected': ''; ?>
-                    > email </option>
+                    <a 
+                        href="/task?orderby=status&sortDirect=<?= $sortDirect ?>&page=<?= $page ?>"
+                        class="sort-link <?= $orderByStatus ?>"
+                        >статусу</a>
+                </div>
 
-                    <option 
-                        onclick="location.href = '/task?orderby=status&sortDirect=<?= $sortDirect ?>&page=<?= $page ?>'"
-                        <?= $orderBy == 'status' ? 'selected': ''; ?>
-                    > cтатусу </option>
-                </select>
 
-                <!-- <label for="sort-direct">по: </label> -->
-                <select id="sort-direct" class="select-direct-sort">
-                    <!-- <option> ---- </option> -->
+                <div class="sort-direct-btn-block">
+                    <a href="/task?orderby=<?= $orderBy ? $orderBy : 'created_at' ?>&sortDirect=ASC&page=<?= $page ?>"
+                        class="sort-link <?= $sortDirectAsc ?>"
+                    ></a>
 
-                    <option 
-                        onclick="location.href = '/task?orderby=<?= $orderBy ? $orderBy : 'created_at' ?>&sortDirect=ASC&page=<?= $page ?>'"
-                        <?= $sortDirect == 'ASC' ? 'selected': ''; ?>
-                    > по возрастанию </option>
-
-                    <option 
-                        onclick="location.href = '/task?orderby=<?= $orderBy ? $orderBy : 'created_at' ?>&sortDirect=DESC&page=<?= $page ?>'"
-                        <?= $sortDirect == 'DESC' ? 'selected': ''; ?>
-                    > по убыванию </option>
-
-                </select>
+                    <a href="/task?orderby=<?= $orderBy ? $orderBy : 'created_at' ?>&sortDirect=DESC&page=<?= $page ?>"
+                        class="sort-link <?= $sortDirectDesc ?>"
+                    ></a>  
+                </div>             
             </div>
         <?php endif; ?>
 

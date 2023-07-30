@@ -18,7 +18,7 @@
         border-right: 1px solid rgba($white, 0.1);    
     }
     .sort-link.is-sorted {
-        color: #0e0;
+        color: $green;
     }
 }
 
@@ -94,33 +94,63 @@
 
 
 .sort-block {
-    label {
-        margin-right: 10px;
+    display: flex;
+    gap: 20px;
+    border: 1px solid rgba($baseBg, .8);
+    border-radius: 3px;
+    padding: 2px 10px;
+    .sort-by-block {
+        display: flex;
+        align-items: center;
+        gap: 1px;
+        span {
+            margin-right: 6px;
+            font-style: italic;
+        }
+        a {
+            display: block;
+            border-radius: 3px;
+            padding: 0 4px;
+            color: $baseBg;
+            font-weight: 600;
+            &:hover {
+                color: darken($green, 10);
+            }
+        }
+        .sort-link.is-sorted {
+            color: darken($green, 15);
+        }        
     }
-    select {
-        font: inherit;
-        letter-spacing: inherit;
-        word-spacing: inherit;
-        -moz-appearance: none;
-        -webkit-appearance: none;
-        appearance: none;
-        border: 1px solid rgba($baseBg, .8);
-        border-radius: 4px;
-        margin-right: 10px;
-        padding: 2px 6px;
-        background-color: #fff;
-        color: $baseText;
-        font-weight: 500;
+    .sort-direct-btn-block {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        .sort-link {
+            display: inline-block;
+            background-repeat: no-repeat;
+            width: 16px;
+            height: 16px;
+            transition: .2s;
+        }
+        .sort-link:first-child {
+            background-image: url(../images/sort-up.svg);
+            &:hover {
+                background-size: 90%;
+                background-position: center;
+            }            
+            &.is-sorted {
+                background-image: url(../images/sort-up-selected.svg);
+            }
+        }
+        .sort-link:last-child {
+            background-image: url(../images/sort-down.svg);
+            &:hover {
+                background-size: 90%;
+                background-position: center;
+            }
+            &.is-sorted {
+                background-image: url(../images/sort-down-selected.svg);
+            }            
+        }
     }
-    // option {
-    //     font-family: 'Open Sans';
-    // }
-
-    .select-sort-by {
-        width: 80px;
-    }
-    
-    .select-direct-sort {
-        width: 150px;
-    }    
 }
