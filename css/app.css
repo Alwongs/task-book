@@ -359,32 +359,25 @@ a {
 
 .sort-block {
   display: flex;
-  gap: 20px;
-  border: 1px solid rgba(91, 129, 180, 0.8);
+  gap: 30px;
   border-radius: 3px;
-  padding: 2px 10px;
 }
 .sort-block .sort-by-block {
   display: flex;
   align-items: center;
-  gap: 1px;
-}
-.sort-block .sort-by-block span {
-  margin-right: 6px;
-  font-style: italic;
+  gap: 15px;
 }
 .sort-block .sort-by-block a {
   display: block;
-  border-radius: 3px;
-  padding: 0 4px;
   color: rgb(91, 129, 180);
-  font-weight: 600;
+  font-weight: 400;
 }
 .sort-block .sort-by-block a:hover {
   color: #00bb00;
 }
 .sort-block .sort-by-block .sort-link.is-sorted {
   color: #00a200;
+  font-weight: 500;
 }
 .sort-block .sort-direct-btn-block {
   display: flex;

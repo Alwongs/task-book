@@ -95,30 +95,23 @@
 
 .sort-block {
     display: flex;
-    gap: 20px;
-    border: 1px solid rgba($baseBg, .8);
+    gap: 30px;
     border-radius: 3px;
-    padding: 2px 10px;
     .sort-by-block {
         display: flex;
         align-items: center;
-        gap: 1px;
-        span {
-            margin-right: 6px;
-            font-style: italic;
-        }
+        gap: 15px;
         a {
             display: block;
-            border-radius: 3px;
-            padding: 0 4px;
             color: $baseBg;
-            font-weight: 600;
+            font-weight: 400;
             &:hover {
                 color: darken($green, 10);
             }
         }
         .sort-link.is-sorted {
             color: darken($green, 15);
+            font-weight: 500;
         }        
     }
     .sort-direct-btn-block {

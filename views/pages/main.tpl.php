@@ -16,36 +16,17 @@
     <h1>Задачи</h1>
 
     <div class="btn-block mb-16 flex-between flex-bottom">
-
         <?php if(isset($pageData['tasksOnPage'])) : ?>        
             <div class="sort-block">
                 <div class="sort-by-block">
-                    <span>Сортировать по:</span>
-                    <a 
-                        href="/task?orderby=full_name&sortDirect=<?= $sortDirect ?>&page=<?= $page ?>"
-                        class="sort-link <?= $orderByName ?>"
-                    >имени,</a>
-
-                    <a 
-                        href="/task?orderby=email&sortDirect=<?= $sortDirect ?>&page=<?= $page ?>"
-                        class="sort-link <?= $orderByEmail ?>"
-                    >email,</a>
-
-                    <a 
-                        href="/task?orderby=status&sortDirect=<?= $sortDirect ?>&page=<?= $page ?>"
-                        class="sort-link <?= $orderByStatus ?>"
-                        >статусу</a>
+                    <a href="/task?orderby=full_name&sortDirect=<?= $sortDirect ?>&page=<?= $page ?>" class="sort-link <?= $orderByName ?>"> по имени </a>
+                    <a href="/task?orderby=email&sortDirect=<?= $sortDirect ?>&page=<?= $page ?>" class="sort-link <?= $orderByEmail ?>"> по email </a>
+                    <a href="/task?orderby=status&sortDirect=<?= $sortDirect ?>&page=<?= $page ?>" class="sort-link <?= $orderByStatus ?>"> по статусу </a>
                 </div>
 
-
                 <div class="sort-direct-btn-block">
-                    <a href="/task?orderby=<?= $orderBy ? $orderBy : 'created_at' ?>&sortDirect=ASC&page=<?= $page ?>"
-                        class="sort-link <?= $sortDirectAsc ?>"
-                    ></a>
-
-                    <a href="/task?orderby=<?= $orderBy ? $orderBy : 'created_at' ?>&sortDirect=DESC&page=<?= $page ?>"
-                        class="sort-link <?= $sortDirectDesc ?>"
-                    ></a>  
+                    <a href="/task?orderby=<?= $orderBy ? $orderBy : 'created_at' ?>&sortDirect=ASC&page=<?= $page ?>" class="sort-link <?= $sortDirectAsc ?>"></a>
+                    <a href="/task?orderby=<?= $orderBy ? $orderBy : 'created_at' ?>&sortDirect=DESC&page=<?= $page ?>" class="sort-link <?= $sortDirectDesc ?>"></a>  
                 </div>             
             </div>
         <?php endif; ?>
@@ -54,14 +35,6 @@
             Добавить задачу
         </a>
     </div>
-
-
-
-
-
-
-
-
 
 
     <?php if(isset($pageData['tasksOnPage'])) : ?>
